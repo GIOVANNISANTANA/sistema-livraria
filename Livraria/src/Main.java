@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -217,9 +216,180 @@ public class Main {
 
                         } break;
 
+
+                        case 2:{//Jogo
+                            System.out.println("Entre com o id do Jogo a ser alterado: ");
+                            int idJogo = ler.nextInt();
+                            ler.nextLine();
+
+                            Produto p = new Produto();
+                            if(idJogo > -1 && idJogo <= prodList.size()-1) {
+                                String exibeProduto = p.getStrProduto(prodList.get(idJogo));
+                                //work on the element
+                                System.out.println(exibeProduto);
+
+                                System.out.println("Entre com os dados a serem alterados\n( '9999' pra manter o valor atual):");
+                                System.out.print("Nome do jogo: ");
+                                String nome = ler.nextLine();
+                                System.out.print("Preço: ");
+                                float preco = Float.parseFloat(ler.nextLine().replace(',', '.'));
+                                System.out.print("Estoque arbitrário: ");
+                                int estoque = ler.nextInt();
+                                ler.nextLine();
+                                System.out.print("Gêneros: ");
+                                String genero = ler.nextLine();
+                                System.out.print("Distribuidora: ");
+                                String distribuidora = ler.nextLine();
+                                System.out.print("Estudio: ");
+                                String estudio = ler.nextLine();
+
+                                Produto prod = new Produto();
+                                prodList.set(idJogo, prod.alteraJogo(prodList.get(idJogo),nome, preco, estoque, genero, distribuidora, estudio));
+
+                                String exibeAlterado = p.getStrProduto(prodList.get(idJogo));
+                                //work on the element
+                                System.out.println("\n"+exibeAlterado);
+                                System.out.println("Produto alterado!");
+                            } else {
+                                System.out.println("Produto não encontrado com o ID fornecido!");
+                            }
+
+                        } break;
+
+                        case 3:{//Alterar Filme
+                            System.out.println("Entre com o id do Filme a ser alterado: ");
+                            int idFilme = ler.nextInt();
+                            ler.nextLine();
+
+                            Produto p = new Produto();
+                            if(idFilme > -1 && idFilme <= prodList.size()-1) {
+                                String exibeProduto = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println(exibeProduto);
+
+                                System.out.println("Entre com os dados a serem alterados\n( '9999' pra manter o valor atual):");
+                                System.out.print("Nome do filme: ");
+                                String nome = ler.nextLine();
+                                System.out.print("Preço: ");
+                                float preco = Float.parseFloat(ler.nextLine().replace(',', '.'));
+                                System.out.print("Estoque arbitrário: ");
+                                int estoque = ler.nextInt();
+                                ler.nextLine();
+                                System.out.print("Produtores: ");
+                                String produtores = ler.nextLine();
+                                System.out.print("Estudio: ");
+                                String estudio = ler.nextLine();
+                                System.out.print("Gêneros: ");
+                                String genero = ler.nextLine();
+                                System.out.print("Diretores: ");
+                                String diretores = ler.nextLine();
+
+                                Produto prod = new Produto();
+                                prodList.set(idFilme, prod.alteraFilme(prodList.get(idFilme),nome, preco, estoque, genero, produtores, estudio, diretores));
+
+                                String exibeAlterado = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println("\n"+exibeAlterado);
+                                System.out.println("Produto alterado!");
+                            } else {
+                                System.out.println("Produto não encontrado com o ID fornecido!");
+                            }
+
+                        } break;
+
+                        case 4:{//Alterar Álbum musical
+                            System.out.println("Entre com o id do Álbum de música a ser alterado: ");
+                            int idFilme = ler.nextInt();
+                            ler.nextLine();
+
+                            Produto p = new Produto();
+                            if(idFilme > -1 && idFilme <= prodList.size()-1) {
+                                String exibeProduto = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println(exibeProduto);
+
+                                System.out.println("Entre com os dados a serem alterados\n( '9999' pra manter o valor atual):");
+                                System.out.print("Nome do filme: ");
+                                String nome = ler.nextLine();
+                                System.out.print("Preço: ");
+                                float preco = Float.parseFloat(ler.nextLine().replace(',', '.'));
+                                System.out.print("Estoque arbitrário: ");
+                                int estoque = ler.nextInt();
+                                ler.nextLine();
+                                System.out.print("Banda ou Músico: ");
+                                String banda = ler.nextLine();
+                                System.out.print("Gêneros: ");
+                                String genero = ler.nextLine();
+                                System.out.print("Selos: ");
+                                String selos = ler.nextLine();
+
+                                Produto prod = new Produto();
+                                prodList.set(idFilme, prod.alteraMusica(prodList.get(idFilme),nome, preco, estoque, genero, banda, selos));
+
+                                String exibeAlterado = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println("\n"+exibeAlterado);
+                                System.out.println("Produto alterado!");
+                            } else {
+                                System.out.println("Produto não encontrado com o ID fornecido!");
+                            }
+
+                        } break;
+
+
+                        case 5:{//Alterar Brinquedo
+                            System.out.println("Entre com o id do Brinquedo a ser alterado: ");
+                            int idFilme = ler.nextInt();
+                            ler.nextLine();
+
+                            Produto p = new Produto();
+                            if(idFilme > -1 && idFilme <= prodList.size()-1) {
+                                String exibeProduto = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println(exibeProduto);
+
+                                System.out.println("Entre com os dados a serem alterados\n( '9999' pra manter o valor atual):");
+                                System.out.print("Nome do filme: ");
+                                String nome = ler.nextLine();
+                                System.out.print("Preço: ");
+                                float preco = Float.parseFloat(ler.nextLine().replace(',', '.'));
+                                System.out.print("Estoque arbitrário: ");
+                                int estoque = ler.nextInt();
+                                ler.nextLine();
+                                System.out.print("Tipo do brinquedo: ");
+                                String tipoBrinquedo = ler.nextLine();
+
+                                Produto prod = new Produto();
+                                prodList.set(idFilme, prod.alteraBrinquedo(prodList.get(idFilme),nome, preco, estoque, tipoBrinquedo));
+
+                                String exibeAlterado = p.getStrProduto(prodList.get(idFilme));
+                                //work on the element
+                                System.out.println("\n"+exibeAlterado);
+                                System.out.println("Produto alterado!");
+                            } else {
+                                System.out.println("Produto não encontrado com o ID fornecido!");
+                            }
+
+                        } break;
+
+
+
+
                     }
 
-                }
+                } //Fim alterar
+                case 4 -> { //VER ESTOQUE DE PRODUTOS
+                    System.out.println("\nEstoque dos produtos:");
+                    int index = 0;
+                    while (index < prodList.size()) {
+                        Produto p = new Produto();
+                        String exibeProduto = p.getStrEstoque(prodList.get(index));
+                        //work on the element
+                        System.out.println(exibeProduto);
+                        index++;
+                    }
+                    System.out.println("\n** FIM DA LISTAGEM DE PRODUTOS **");
+                } //FIM ESTOQUE
 
             }
 

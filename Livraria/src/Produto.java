@@ -163,21 +163,25 @@ public class Produto {
         return this;
     }
     public String getStrProduto(Produto prod){
-        if(prod.tipoProd == "Livro")
+        if(prod.tipoProd.equals("Livro"))
             return prod.id+" - "+prod.tipoProd+"        : " +prod.nome+
                     " - Gênero: "+prod.livrosGeneros+" - Editora: "+prod.livrosEditora+" - Escritor(a): "+prod.livrosEscritor;
-        if(prod.tipoProd == "Brinquedo")
+        if(prod.tipoProd.equals("Brinquedo"))
             return prod.id+" - "+prod.tipoProd+"    : "     +prod.nome+" | "+prod.brinquedoTipo;
-        if(prod.tipoProd == "Jogo")
+        if(prod.tipoProd.equals("Jogo"))
             return prod.id+" - "+prod.tipoProd+"         : "+prod.nome+
                     " | "+prod.jogosGeneros+" | "+ prod.jogosEstudio+" | "+prod.jogosDistribuidora;
-        if(prod.tipoProd == "Álbum Musical")
+        if(prod.tipoProd.equals("Álbum Musical"))
             return prod.id+" - "+prod.tipoProd+": "         +prod.nome+
                     " | "+prod.musicaGeneros+" | "+prod.musicaBandas+" | "+prod.musicaSelos;
-        if(prod.tipoProd == "Filme")
+        if(prod.tipoProd.equals("Filme"))
             return prod.id+" - "+prod.tipoProd+"        : " +prod.nome+
                     " | "+prod.filmesGeneros+" | "+prod.filmesDiretores+" | "+prod.filmesEstudio+" | "+prod.filmesProdutores;
         return "";
+    }
+
+    public String getStrEstoque(Produto prod){
+        return prod.id+" - "+prod.tipoProd+": " +prod.nome+" = "+prod.estoque;
     }
 
     public Produto alteraLivro(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
@@ -337,7 +341,7 @@ public class Produto {
         return this;
     }
 
-    public Produto alteraBrinquedo(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String TIPO){
+    public Produto alteraBrinquedo(Produto prod, String NOME, float PRECO, int ESTOQUE, String TIPO){
         String mantemAtual = "9999";
 
         if(NOME.equals(mantemAtual))
@@ -365,5 +369,124 @@ public class Produto {
         return this;
     }
 
-    public Produto(){ };
+    public Produto alteraJogo(Produto prod, String NOME, float PRECO, int ESTOQUE, String GENERO, String DISTRIBUIDORA, String ESTUDIO){
+        String mantemAtual = "9999";
+
+        if(NOME.equals(mantemAtual))
+            this.setNome(prod.nome);
+        else
+            this.setNome(NOME);
+
+        this.setId(prod.id);
+
+        if(PRECO == Float.parseFloat(mantemAtual))
+            this.setPreco(prod.preco);
+        else
+            this.setPreco(PRECO);
+
+        if(ESTOQUE == Integer.parseInt(mantemAtual))
+            this.setEstoque(prod.estoque);
+        else
+            this.setEstoque(ESTOQUE);
+
+        if(GENERO.equals(mantemAtual))
+            this.setJogosGeneros(prod.jogosGeneros);
+        else
+            this.setJogosGeneros(GENERO);
+
+        if(DISTRIBUIDORA.equals(mantemAtual))
+            this.setJogosDistribuidora(prod.jogosDistribuidora);
+        else
+            this.setJogosDistribuidora(DISTRIBUIDORA);
+
+        if(ESTUDIO.equals(mantemAtual))
+            this.setJogosEstudio(prod.jogosEstudio);
+        else
+            this.setJogosEstudio(ESTUDIO);
+
+        return this;
+    }
+
+    public Produto alteraFilme(Produto prod, String NOME, float PRECO, int ESTOQUE, String GENERO, String PRODUTORES, String ESTUDIO, String DIRETORES){
+        String mantemAtual = "9999";
+
+        if(NOME.equals(mantemAtual))
+            this.setNome(prod.nome);
+        else
+            this.setNome(NOME);
+
+        this.setId(prod.id);
+
+        if(PRECO == Float.parseFloat(mantemAtual))
+            this.setPreco(prod.preco);
+        else
+            this.setPreco(PRECO);
+
+        if(ESTOQUE == Integer.parseInt(mantemAtual))
+            this.setEstoque(prod.estoque);
+        else
+            this.setEstoque(ESTOQUE);
+
+        if(GENERO.equals(mantemAtual))
+            this.setFilmesGeneros(prod.filmesGeneros);
+        else
+            this.setFilmesGeneros(GENERO);
+
+        if(PRODUTORES.equals(mantemAtual))
+            this.setFilmesProdutores(prod.filmesProdutores);
+        else
+            this.setFilmesProdutores(PRODUTORES);
+
+        if(ESTUDIO.equals(mantemAtual))
+            this.setFilmesEstudio(prod.filmesEstudio);
+        else
+            this.setFilmesEstudio(ESTUDIO);
+
+        if(DIRETORES.equals(mantemAtual))
+            this.setFilmesDiretores(prod.filmesDiretores);
+        else
+            this.setFilmesDiretores(DIRETORES);
+
+        return this;
+    }
+
+    public Produto alteraMusica(Produto prod, String NOME, float PRECO, int ESTOQUE, String GENERO, String BANDA, String SELOS){
+        String mantemAtual = "9999";
+
+        if(NOME.equals(mantemAtual))
+            this.setNome(prod.nome);
+        else
+            this.setNome(NOME);
+
+        this.setId(prod.id);
+
+        if(PRECO == Float.parseFloat(mantemAtual))
+            this.setPreco(prod.preco);
+        else
+            this.setPreco(PRECO);
+
+        if(ESTOQUE == Integer.parseInt(mantemAtual))
+            this.setEstoque(prod.estoque);
+        else
+            this.setEstoque(ESTOQUE);
+
+        if(GENERO.equals(mantemAtual))
+            this.setMusicaGeneros(prod.musicaGeneros);
+        else
+            this.setMusicaGeneros(GENERO);
+
+        if(BANDA.equals(mantemAtual))
+            this.setMusicaBandas(prod.musicaBandas);
+        else
+            this.setMusicaBandas(BANDA);
+
+        if(SELOS.equals(mantemAtual))
+            this.setMusicaSelos(prod.musicaSelos);
+        else
+            this.setMusicaSelos(SELOS);
+
+        return this;
+    }
+    
+    public Produto(){ }
 }
