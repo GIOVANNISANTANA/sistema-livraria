@@ -184,8 +184,17 @@ public class Produto {
         return prod.id+" - "+prod.tipoProd+": " +prod.nome+" = "+prod.estoque+" und";
     }
 
+    public String getStrEstoque(Produto prod, String tipoProd){
+        if(tipoProd.equals(prod.tipoProd))
+            return prod.id+" - "+prod.tipoProd+": " +prod.nome+" = "+prod.estoque+" und";
+        else
+            return "";
+    }
+
     public Produto alteraLivro(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
         String mantemAtual = "9999";
+
+        this.tipoProd = "Livro";
 
         if(NOME.equals(mantemAtual))
             this.setNome(prod.nome);
@@ -222,127 +231,10 @@ public class Produto {
         return this;
     }
 
-    public Produto alteraJogo(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String DISTRIBUIDORA, String ESTUDIO){
-        String mantemAtual = "9999";
-
-        if(NOME.equals(mantemAtual))
-            this.setNome(prod.nome);
-        else
-            this.setNome(NOME);
-
-        this.setId(prod.id);
-
-        if(PRECO == Float.parseFloat(mantemAtual))
-            this.setPreco(prod.preco);
-        else
-            this.setPreco(PRECO);
-
-        if(ESTOQUE == Integer.parseInt(mantemAtual))
-            this.setEstoque(prod.estoque);
-        else
-            this.setEstoque(ESTOQUE);
-
-        if(GENERO.equals(mantemAtual))
-            this.setJogosGeneros(prod.jogosGeneros);
-        else
-            this.setJogosGeneros(GENERO);
-
-        if(DISTRIBUIDORA.equals(mantemAtual))
-            this.setJogosDistribuidora(prod.jogosDistribuidora);
-        else
-            this.setJogosDistribuidora(DISTRIBUIDORA);
-
-        if(ESTUDIO.equals(mantemAtual))
-            this.setJogosEstudio(prod.jogosEstudio);
-        else
-            this.setJogosEstudio(ESTUDIO);
-
-        return this;
-    }
-
-    public Produto alteraFilme(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String PRODUTORES, String ESTUDIO, String DIRETORES){
-        String mantemAtual = "9999";
-
-        if(NOME.equals(mantemAtual))
-            this.setNome(prod.nome);
-        else
-            this.setNome(NOME);
-
-        this.setId(prod.id);
-
-        if(PRECO == Float.parseFloat(mantemAtual))
-            this.setPreco(prod.preco);
-        else
-            this.setPreco(PRECO);
-
-        if(ESTOQUE == Integer.parseInt(mantemAtual))
-            this.setEstoque(prod.estoque);
-        else
-            this.setEstoque(ESTOQUE);
-
-        if(GENERO.equals(mantemAtual))
-            this.setFilmesGeneros(prod.filmesGeneros);
-        else
-            this.setFilmesGeneros(GENERO);
-
-        if(PRODUTORES.equals(mantemAtual))
-            this.setFilmesProdutores(prod.filmesProdutores);
-        else
-            this.setFilmesProdutores(PRODUTORES);
-
-        if(ESTUDIO.equals(mantemAtual))
-            this.setFilmesEstudio(prod.filmesEstudio);
-        else
-            this.setFilmesEstudio(ESTUDIO);
-
-        if(DIRETORES.equals(mantemAtual))
-            this.setFilmesDiretores(prod.filmesDiretores);
-        else
-            this.setFilmesDiretores(DIRETORES);
-
-        return this;
-    }
-
-    public Produto alteraBanda(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String BANDA, String SELOS){
-        String mantemAtual = "9999";
-
-        if(NOME.equals(mantemAtual))
-            this.setNome(prod.nome);
-        else
-            this.setNome(NOME);
-
-        this.setId(prod.id);
-
-        if(PRECO == Float.parseFloat(mantemAtual))
-            this.setPreco(prod.preco);
-        else
-            this.setPreco(PRECO);
-
-        if(ESTOQUE == Integer.parseInt(mantemAtual))
-            this.setEstoque(prod.estoque);
-        else
-            this.setEstoque(ESTOQUE);
-
-        if(GENERO.equals(mantemAtual))
-            this.setMusicaGeneros(prod.musicaGeneros);
-        else
-            this.setMusicaGeneros(GENERO);
-
-        if(BANDA.equals(mantemAtual))
-            this.setMusicaBandas(prod.musicaBandas);
-        else
-            this.setMusicaBandas(BANDA);
-
-        if(SELOS.equals(mantemAtual))
-            this.setMusicaSelos(prod.musicaSelos);
-        else
-            this.setMusicaSelos(SELOS);
-
-        return this;
-    }
-
     public Produto alteraBrinquedo(Produto prod, String NOME, float PRECO, int ESTOQUE, String TIPO){
         String mantemAtual = "9999";
+
+        this.tipoProd = "Brinquedo";
 
         if(NOME.equals(mantemAtual))
             this.setNome(prod.nome);
@@ -371,6 +263,8 @@ public class Produto {
 
     public Produto alteraJogo(Produto prod, String NOME, float PRECO, int ESTOQUE, String GENERO, String DISTRIBUIDORA, String ESTUDIO){
         String mantemAtual = "9999";
+
+        this.tipoProd = "Jogo";
 
         if(NOME.equals(mantemAtual))
             this.setNome(prod.nome);
@@ -453,6 +347,8 @@ public class Produto {
     public Produto alteraMusica(Produto prod, String NOME, float PRECO, int ESTOQUE, String GENERO, String BANDA, String SELOS){
         String mantemAtual = "9999";
 
+        this.tipoProd = "Álbum Musical";
+
         if(NOME.equals(mantemAtual))
             this.setNome(prod.nome);
         else
@@ -487,6 +383,23 @@ public class Produto {
 
         return this;
     }
+
+
+    public Produto alteraEstoqueLivro(Produto prod, int ESTOQUE){
+
+        this.tipoProd = "Livros";
+        this.setEstoque(ESTOQUE);
+
+        this.setNome(prod.nome);
+        this.setId(prod.id);
+        this.setLivrosGeneros(prod.livrosGeneros);
+        this.setLivrosEditora(prod.livrosEditora);
+        this.setLivrosEscritor(prod.livrosEscritor);
+        this.setPreco(prod.preco);
+
+        return this;
+    }
+
 
     public Produto(){ }
 }

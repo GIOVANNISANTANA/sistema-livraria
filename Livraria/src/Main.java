@@ -161,7 +161,7 @@ public class Main {
                     System.out.println("\n** FIM DA LISTAGEM DE PRODUTOS **");
                 }//FIM VER PRODUTOS
                 case 3 -> { //ALTERAR PRODUTOS
-                    System.out.println("Alterar:");
+                    System.out.println("Alterar informações:");
                     System.out.println("  0 - Voltar");
                     System.out.println("  1 - Livro");
                     System.out.println("  2 - Jogo");
@@ -393,7 +393,7 @@ public class Main {
                 } //FIM ESTOQUE
 
                 case 5 -> { //Ver listagem por categoria
-                    System.out.println("Ver categoria:");
+                    System.out.println("Ver estoque por categoria:");
                     System.out.println("  0 - Voltar");
                     System.out.println("  1 - Livro");
                     System.out.println("  2 - Jogo");
@@ -408,8 +408,134 @@ public class Main {
                         case 7, 8, 9:
                             System.exit(0);
                             break;
+                        case 0:
+                            break;
+                        case 1:{ //Ver estoque de Livros
+                            System.out.println("\nEstoque dos livros:");
+                            int index = 0;
+                            while (index < prodList.size()) {
+                                Produto p = new Produto();
+                                String exibeProduto = p.getStrEstoque(prodList.get(index),"Livro");
+                                //work on the element
+                                if(!exibeProduto.equals(""))
+                                    System.out.println(exibeProduto);
+
+                                index++;
+                            }
+                            System.out.println("\n** FIM DA LISTAGEM DE LIVROS **");
+                        } break; //FIM listagem livro
+
+                        case 2:{ //Ver estoque de Jogos
+                            System.out.println("\nEstoque dos jogos:");
+                            int index = 0;
+                            while (index < prodList.size()) {
+                                Produto p = new Produto();
+                                String exibeProduto = p.getStrEstoque(prodList.get(index),"Jogo");
+                                //work on the element
+                                if(!exibeProduto.equals(""))
+                                    System.out.println(exibeProduto);
+
+                                index++;
+                            }
+                            System.out.println("\n** FIM DA LISTAGEM DE JOGOS **");
+                        } break; //FIM listagem jogo
+
+                        case 3:{ //Ver estoque de Filme
+                            System.out.println("\nEstoque dos filmes:");
+                            int index = 0;
+                            while (index < prodList.size()) {
+                                Produto p = new Produto();
+                                String exibeProduto = p.getStrEstoque(prodList.get(index),"Filme");
+                                //work on the element
+                                if(!exibeProduto.equals(""))
+                                    System.out.println(exibeProduto);
+
+                                index++;
+                            }
+                            System.out.println("\n** FIM DA LISTAGEM DE FILMES **");
+                        } break; //FIM listagem jogo
+
+                        case 4:{ //Ver estoque de Álbum musical
+                            System.out.println("\nEstoque de álbuns musicais:");
+                            int index = 0;
+                            while (index < prodList.size()) {
+                                Produto p = new Produto();
+                                String exibeProduto = p.getStrEstoque(prodList.get(index),"Álbum Musical");
+                                //work on the element
+                                if(!exibeProduto.equals(""))
+                                    System.out.println(exibeProduto);
+
+                                index++;
+                            }
+                            System.out.println("\n** FIM DA LISTAGEM DE ÁLBUNS MUSICAIS **");
+                        } break; //FIM listagem, Álbum Musical
+
+                        case 5:{ //Ver estoque de Brinquedo
+                            System.out.println("\nEstoque de brinquedos:");
+                            int index = 0;
+                            while (index < prodList.size()) {
+                                Produto p = new Produto();
+                                String exibeProduto = p.getStrEstoque(prodList.get(index),"Brinquedo");
+                                //work on the element
+                                if(!exibeProduto.equals(""))
+                                    System.out.println(exibeProduto);
+
+                                index++;
+                            }
+                            System.out.println("\n** FIM DA LISTAGEM DE BRINQUEDOS **");
+                        } break; //FIM listagem de brinquedos
+
                     }
-                }
+                } // FIM LISTAGEM DE ESTOQUE POR CATEGORIA
+
+                case 6 -> { //ALTERAR ESTOQUE
+                    System.out.println("Alterar informações:");
+                    System.out.println("  0 - Voltar");
+                    System.out.println("  1 - Livro");
+                    System.out.println("  2 - Jogo");
+                    System.out.println("  3 - Filme");
+                    System.out.println("  4 - Álbum musical");
+                    System.out.println("  5 - Brinquedo");
+                    System.out.println("7,8,9 - Saír");
+
+                    op = ler.nextInt();
+                    ler.nextLine();
+                    switch (op) { //Adicionar
+                        case 7, 8, 9:
+                            System.exit(0);
+                            break;
+                        case 0:
+                            break;
+                        case 1: {//ALTERAR ESTOQUE LIVRO
+                            System.out.println("Entre com o id do Livro a ser alterado: ");
+                            int idLivro = ler.nextInt();
+                            ler.nextLine();
+
+                            Produto p = new Produto();
+                            if (idLivro > -1 && idLivro <= prodList.size() - 1) {
+                                String exibeProduto = p.getStrEstoque(prodList.get(idLivro));
+                                //work on the element
+                                System.out.println(exibeProduto);
+
+                                System.out.println("Entre com o novo estoque:");
+                                int estoque = ler.nextInt();
+                                ler.nextLine();
+
+                                Produto prod = new Produto();
+                                prodList.set(idLivro, prod.alteraEstoqueLivro(prodList.get(idLivro), estoque));
+
+                                String exibeAlterado = p.getStrEstoque(prodList.get(idLivro));
+                                //work on the element
+                                System.out.println("\n" + exibeAlterado);
+                                System.out.println("Estoque alterado!");
+                            } else {
+                                System.out.println("Produto não encontrado com o ID fornecido!");
+                            }
+
+                        }// FIM ALTERAR ESTOQUE LIVRO
+                        break;
+                    }
+                } // FIM ALTERAR ESTOQUE
             }
 
         }while(true);
