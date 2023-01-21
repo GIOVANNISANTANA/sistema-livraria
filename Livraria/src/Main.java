@@ -189,7 +189,7 @@ public class Main {
                                 //work on the element
                                 System.out.println(exibeProduto);
 
-                                System.out.println("Entre com os dados a serem alterados\n(deixe em branco pra manter o valor atual):");
+                                System.out.println("Entre com os dados a serem alterados\n( '9999' pra manter o valor atual):");
                                 System.out.print("Nome do livro: ");
                                 String nome = ler.nextLine();
                                 System.out.print("Preço: ");
@@ -205,7 +205,7 @@ public class Main {
                                 String escritor = ler.nextLine();
 
                                 Produto prod = new Produto();
-                                prodList.add(prod.addLivro(nome, prodList.size(), preco, estoque, genero, editora, escritor));
+                                prodList.set(idLivro, prod.alteraLivro(prodList.get(idLivro),nome, idLivro, preco, estoque, genero, editora, escritor));
 
                                 System.out.println("Produto alterado!");
                             } else {

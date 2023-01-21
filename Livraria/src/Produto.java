@@ -180,15 +180,44 @@ public class Produto {
         return "";
     }
 
-    public Produto alterarLivro(String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
-        this.setTipoProd("Livro");
-        this.setNome(NOME);
-        this.setId(ID);
-        this.setPreco(PRECO);
-        this.setEstoque(ESTOQUE);
-        this.setLivrosGeneros(GENERO);
-        this.setLivrosEditora(EDITORA);
-        this.setLivrosEscritor(ESCRITOR);
+    public Produto alteraLivro(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
+        String mantemAtual = "9999";
+
+        if(NOME == mantemAtual)
+            this.setNome(prod.nome);
+        else
+            this.setNome(NOME);
+
+        if(ID == Integer.parseInt(mantemAtual))
+            this.setId(prod.id);
+        else
+            this.setId(ID);
+
+        if(PRECO == Float.parseFloat(mantemAtual))
+            this.setPreco(prod.preco);
+        else
+            this.setPreco(PRECO);
+
+        if(ESTOQUE == Integer.parseInt(mantemAtual))
+            this.setEstoque(prod.estoque);
+        else
+            this.setEstoque(ESTOQUE);
+
+        if(GENERO == mantemAtual)
+            this.setLivrosGeneros(prod.livrosGeneros);
+        else
+            this.setLivrosGeneros(GENERO);
+
+        if(EDITORA == mantemAtual)
+            this.setLivrosEditora(prod.livrosEditora);
+        else
+            this.setLivrosEditora(EDITORA);
+
+        if(ESCRITOR == mantemAtual)
+            this.setLivrosEscritor(prod.livrosEscritor);
+        else
+            this.setLivrosEscritor(ESCRITOR);
+
         return this;
     }
 
