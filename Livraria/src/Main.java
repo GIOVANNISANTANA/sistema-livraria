@@ -178,7 +178,7 @@ public class Main {
                             break;
                         case 0:
                             break;
-                        case 1:{
+                        case 1:{//Livaro
                             System.out.println("Entre com o id do Livro a ser alterado: ");
                             int idLivro = ler.nextInt();
                             ler.nextLine();
@@ -194,7 +194,7 @@ public class Main {
                                 String nome = ler.nextLine();
                                 System.out.print("Preço: ");
                                 float preco = Float.parseFloat(ler.nextLine().replace(',', '.'));
-                                System.out.print("Estoque inicial: ");
+                                System.out.print("Estoque arbitrário: ");
                                 int estoque = ler.nextInt();
                                 ler.nextLine();
                                 System.out.print("Gêneros: ");
