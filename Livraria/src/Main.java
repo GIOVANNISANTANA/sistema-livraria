@@ -207,6 +207,9 @@ public class Main {
                                 Produto prod = new Produto();
                                 prodList.set(idLivro, prod.alteraLivro(prodList.get(idLivro),nome, idLivro, preco, estoque, genero, editora, escritor));
 
+                                String exibeAlterado = p.getStrProduto(prodList.get(idLivro));
+                                //work on the element
+                                System.out.println("\n"+exibeAlterado);
                                 System.out.println("Produto alterado!");
                             } else {
                                 System.out.println("Produto não encontrado com o ID fornecido!");

@@ -183,15 +183,12 @@ public class Produto {
     public Produto alteraLivro(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
         String mantemAtual = "9999";
 
-        if(NOME == mantemAtual)
+        if(NOME.equals(mantemAtual))
             this.setNome(prod.nome);
         else
             this.setNome(NOME);
 
-        if(ID == Integer.parseInt(mantemAtual))
-            this.setId(prod.id);
-        else
-            this.setId(ID);
+        this.setId(prod.id);
 
         if(PRECO == Float.parseFloat(mantemAtual))
             this.setPreco(prod.preco);
@@ -203,17 +200,17 @@ public class Produto {
         else
             this.setEstoque(ESTOQUE);
 
-        if(GENERO == mantemAtual)
+        if(GENERO.equals(mantemAtual))
             this.setLivrosGeneros(prod.livrosGeneros);
         else
             this.setLivrosGeneros(GENERO);
 
-        if(EDITORA == mantemAtual)
+        if(EDITORA.equals(mantemAtual))
             this.setLivrosEditora(prod.livrosEditora);
         else
             this.setLivrosEditora(EDITORA);
 
-        if(ESCRITOR == mantemAtual)
+        if(ESCRITOR.equals(mantemAtual))
             this.setLivrosEscritor(prod.livrosEscritor);
         else
             this.setLivrosEscritor(ESCRITOR);
