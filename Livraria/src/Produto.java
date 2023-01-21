@@ -181,7 +181,7 @@ public class Produto {
     }
 
     public String getStrEstoque(Produto prod){
-        return prod.id+" - "+prod.tipoProd+": " +prod.nome+" = "+prod.estoque;
+        return prod.id+" - "+prod.tipoProd+": " +prod.nome+" = "+prod.estoque+" und";
     }
 
     public Produto alteraLivro(Produto prod, String NOME, int ID, float PRECO, int ESTOQUE, String GENERO, String EDITORA, String ESCRITOR){
@@ -487,6 +487,6 @@ public class Produto {
 
         return this;
     }
-    
+
     public Produto(){ }
 }

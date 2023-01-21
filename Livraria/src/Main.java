@@ -8,20 +8,21 @@ public class Main {
         ArrayList<Produto> prodList = new ArrayList<>();
 
         do {
-            System.out.println("\nBem vindo(a)!\n");
+            System.out.println("\nBem vindo(a)!");
+            String money = caixa+"";
+            System.out.print("(Caixa Atual: R$"+money.replace('.', ',')+")\n\n");
             System.out.println("Produto:");
             System.out.println("  1 - Adicionar");
             System.out.println("  2 - Ver todos os produtos");
             System.out.println("  3 - Alterar informações\n");
             System.out.println("Estoque:");
             System.out.println("  4 - Ver o estoque dos produtos");
-            System.out.println("  5 - Ver estoque por categoria");
-            System.out.println("  6 - Alterar estoque do produto\n");
+            System.out.println("  5 - Ver os itens em estoque por categoria");
+            System.out.println("  6 - Alterar apenas o estoque do produto\n");
             System.out.println("Compra:");
             System.out.println("  7 - Realizar uma compra\n");
-            System.out.println("  0,8,9 - Saír");
-
-            System.out.print("");
+            System.out.println("Navegação:");
+            System.out.println("  0,8,9 - Saír\n\nDigite opção: ");
 
             int op = ler.nextInt();
             ler.nextLine();
@@ -35,8 +36,8 @@ public class Main {
                     System.out.println("  2 - Jogo");
                     System.out.println("  3 - Filme");
                     System.out.println("  4 - Álbum musical");
-                    System.out.println("  5 - Brinquedo");
-                    System.out.println("7,8,9 - Saír");
+                    System.out.println("  5 - Brinquedo\n");
+                    System.out.println("Navegação:\n7,8,9 - Saír\n\nDigite opção: ");
 
                     op = ler.nextInt();
                     ler.nextLine();
@@ -391,6 +392,24 @@ public class Main {
                     System.out.println("\n** FIM DA LISTAGEM DE PRODUTOS **");
                 } //FIM ESTOQUE
 
+                case 5 -> { //Ver listagem por categoria
+                    System.out.println("Ver categoria:");
+                    System.out.println("  0 - Voltar");
+                    System.out.println("  1 - Livro");
+                    System.out.println("  2 - Jogo");
+                    System.out.println("  3 - Filme");
+                    System.out.println("  4 - Álbum musical");
+                    System.out.println("  5 - Brinquedo");
+                    System.out.println("7,8,9 - Saír");
+
+                    op = ler.nextInt();
+                    ler.nextLine();
+                    switch (op) { //Adicionar
+                        case 7, 8, 9:
+                            System.exit(0);
+                            break;
+                    }
+                }
             }
 
         }while(true);
